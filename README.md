@@ -48,7 +48,7 @@ cd swift
 ┣ 📜 package.json
 ┣ 📜 README.md
 
-***User Get Response in JSON Format***
+1️⃣ Load Users, Posts & Comments
 
 [
   {
@@ -87,11 +87,94 @@ cd swift
   }
 ]
 
-***User Endpoints***
-
+2️⃣ User Endpoints
 Method	Endpoint	Description
 GET	/api/users	Fetch all users
 GET	/api/users/:userId	Get a specific user (with posts & comments)
 POST	/api/users	Add a new user
 DELETE	/api/users	Delete all users
 DELETE	/api/users/:userId	Delete a specific user
+
+📌 Example Response (GET /api/users/1)
+{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "posts": [
+    {
+      "id": 1,
+      "title": "sunt aut facere repellat",
+      "body": "quia et suscipit recusandae...",
+      "comments": [
+        {
+          "id": 1,
+          "postId": 1,
+          "name": "id labore ex et quam laborum",
+          "body": "laudantium enim quasi est..."
+        }
+      ]
+    }
+  ]
+}
+
+
+
+3️⃣ Post Endpoints
+Method	Endpoint	Description
+GET	/api/posts	Fetch all posts
+GET	/api/posts/:postId	Get a post with its comments
+POST	/api/posts	Add a new post
+DELETE	/api/posts/:postId	Delete a post
+
+📌 Example Response (GET /api/posts/1)
+{
+  "id": 1,
+  "userId": 1,
+  "title": "sunt aut facere repellat",
+  "body": "quia et suscipit recusandae...",
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "name": "id labore ex et quam laborum",
+      "body": "laudantium enim quasi est..."
+    }
+  ]
+}
+
+4️⃣ Comment Endpoints
+Method	Endpoint	Description
+GET	/api/comments	Fetch all comments
+GET	/api/comments/:postId	Get comments for a specific post
+POST	/api/comments	Add a new comment
+DELETE	/api/comments/:commentId	Delete a comment
+
+📌 Example Response (GET /api/comments/1)
+
+{
+  "id": 1,
+  "postId": 1,
+  "name": "id labore ex et quam laborum",
+  "body": "laudantium enim quasi est..."
+}
+
+
+🎯 Future Enhancements
+✅ Add authentication (JWT)
+✅ Add pagination for users & posts
+✅ Implement GraphQL API
+✅ Rate limiting for API protection
+
+
+🤝 Contribution Guide
+Fork the repository.
+Create a new branch (feature-new-api).
+Commit your changes (git commit -m "Added new feature").
+Push to GitHub (git push origin feature-new-api).
+Submit a Pull Request.
+
+📜 License
+This project is open-source and available under the MIT License.
+
+Developed By:- @vinnu382910
